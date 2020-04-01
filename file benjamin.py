@@ -15,7 +15,7 @@ def terrain(n):
 
 def cases_vivantes(L):
     for i in range(len(L)):
-        G[L[i][0]][L[i][1]]=1
+        T[L[i][0]][L[i][1]]=1
 
 
 
