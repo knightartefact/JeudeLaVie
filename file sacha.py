@@ -30,10 +30,6 @@ def setup():
     lignes=int(height/resolution)
     #Creation de la grille avec des cellules aléatoires (vives ou morts)
     grille=arrayCreate(cols,lignes)
-    draw()
-    
-
-
 
 #update
 
@@ -49,8 +45,4 @@ def draw():
             for j in range(cols):
                 grille[i][j]=random.randint(0,1)
                 if grille[i][j]==1:
-                    pygame.draw.rect(screen,white,(j*resolution,i*resolution,resolution-1,resolution-1)   
-
-        pygame.display.update()     
-
-setup()
+                    pygame.draw.rect(screen,white,(j*resolution,i*resolution,resolution-1,resolution-1)
