@@ -18,8 +18,21 @@ def cases_vivantes(L):
         T[L[i][0]][L[i][1]]=1
 
 
+# Fonction auxiliaire pour trouver les coordonnées des cases vivantes
 
+def vivantes(T):
+    global CV
+    CV=[]
+    for i in range(len(T)):
+        for j in range(len(T[0])):
+            if T[i][j]==1:
+                CV.append([i,j])
 
+def JeuDeLaVie(n,L):
+    terrain(n)
+    cases_vivantes(L)
+    for i in range(len(T)):
+        for j in range(len(T[0])):
 
 
 
