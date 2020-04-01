@@ -1,6 +1,24 @@
 import numpy as np
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import numpy.random as rd
+
+
+
+# Fonction pour créer un terrain (carré) de côté de longueur n
+
+def terrain(n):
+    global T
+    T=np.zeros((n,n))
+
+
+# Fonction pour placer les cases vivantes au départ
+
+def cases_vivantes(L):
+    for i in range(len(L)):
+        G[L[i][0]][L[i][1]]=1
+
+
+
 
 
 
@@ -15,5 +33,3 @@ def affiche(M):
     plt.ylim(0,p)
     plt.axis('off')
     plt.show()
-
-
