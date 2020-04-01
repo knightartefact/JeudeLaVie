@@ -11,7 +11,7 @@ screen=pygame.display.set_mode((width,height))
 
 white=pygame.Color(255,255,255)
 
-resolution=20
+resolution=40
 cols= int(width/resolution)
 lignes=int(height/resolution)
 
@@ -22,7 +22,7 @@ def arrayCreate(cols,lignes):
     grille=numpy.zeros((lignes,cols))
     return grille
 
-def vie():
+def enVie():
     grille=arrayCreate(cols,lignes)
     for i in range(lignes):
         for j in range(cols):
@@ -34,9 +34,9 @@ def vie():
 
 #Initialisation
 def setup():
-    vie()
+    enVie()
     pygame.display.update()
-    draw()
+
 
 
 #update
@@ -50,7 +50,6 @@ def draw():
                 break
 
         screen.fill((0,0,0))
-        vie()
         pygame.display.update()
           
 
