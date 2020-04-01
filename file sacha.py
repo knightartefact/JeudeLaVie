@@ -1,20 +1,57 @@
 import numpy
+import random
 import pygame
 pygame.init()
 pygame.display.init()
-screen=pygame.display.set_mode((400,400))
 
-cols=10
-lignes=10
+width=400
+height=400
+
+screen=pygame.display.set_mode((width,height))
+
+white=pygame.Color(255,255,255)
+
+resolution=20
+cols= int(width/resolution)
+lignes=int(height/resolution)
+
+grille=[]
+
 #Array
 def arrayCreate(cols,lignes):
-    a=numpy.zeros((lignes,cols))
-    #print(a)
-    return a
+    grille=numpy.zeros((lignes,cols))
+    return grille
 
+def vie():
+    grille=arrayCreate(cols,lignes)
+    for i in range(lignes):
+        for j in range(cols):
+            grille[i][j]=random.randint(0,1)
+            if grille[i][j]==1:
+                pygame.draw.rect(screen,white,(j*resolution,i*resolution,resolution-1,resolution-1))
+    print(grille)
+    return grille
 
 #Initialisation
 def setup():
-    arrayCreate(cols,lignes)
+    vie()
+    pygame.display.update()
+    draw()
 
 
+#update
+
+def draw():
+    run=True
+    while run:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:   
+                run=False
+                break
+
+        screen.fill((0,0,0))
+        vie()
+        pygame.display.update()
+          
+
+setup()
