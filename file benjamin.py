@@ -79,4 +79,3 @@ def affiche(M):
     plt.axis('off')
     plt.show()
 
-# bonjour, comment-allez vous ?
