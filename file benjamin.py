@@ -17,6 +17,11 @@ def cases_vivantes(L):
     for i in range(len(L)):
         T[L[i][0]][L[i][1]]=1
 
+# Fonction pour placer les cases mortes
+
+def cases_mortes(L):
+    for i in range(len(L)):
+        T[L[i][0]][L[i][1]]=0
 
 # Fonction auxiliaire pour trouver les coordonnées des cellules vivantes (CV est donc le tableau(1xn) contenant les coordonnées de cellules vivantes)
 
@@ -65,29 +70,8 @@ def cgtEtatCell(CV,CM):
     CV = CVA
     CM = CVM
     for i in range(len(CV)):
-        if (CV[i][0] == T[:i] or CV[i][0] == T[:0] ) and (CV[i][0] == T[:-1] or CV[i][0] == T[:-1] ):
+        if ( CV[i][0] == T[:i] or CV[i][0] == T[:0] ) and ( CV[i][0] == T[:-1] or CV[i][0] == T[:-1] ):
             CV=CV.pop(CV[i])
-
-
-    
-
-
-        
-
-
-
-
-
-
-
-
-def JeuDeLaVie(n,L):
-    terrain(n)
-    cases_vivantes(L)
-    for i in range(len(T)):
-        for j in range(len(T[0])):
-
-
 
 
 def affiche(M):
@@ -100,4 +84,12 @@ def affiche(M):
     plt.axis('off')
     plt.show()
 
-^^
+def JeuDeLaVie(n,L,j):
+    terrain(n)
+    cases_vivantes(L)
+    vivantes(T)
+    mortes(T)
+    for i in range(j):
+        cgtEtatCell(CV,CM)
+        cases_vivantes(CV)
+        cases_mortes(CM)
