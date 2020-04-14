@@ -45,13 +45,13 @@ def mortes(T):
         mourir. Enfin, on change la liste T avec l'algo iterationT.
 
         Dans une première étape on regarde les cellules vivantes puis on décide si elle vit ou si elle meurt, 
-        ensuite on fait la même chose pour les cellules mortes puis on décide si elle vit ou si elle meurt; 
+        ensuite on fait la même chose pour les cellules mortes puis on décide si elle vit ou si elle reste morte; 
         ces modifications sont impléentées dans des listes temporaires puis à la fin de l'algo ont les transfère
         dans CV et CM pour ne pas faire d'interférences pendant le fonctionnement de l'algo
 '''
 
 
-def naissanceCell(CV,CM):
+def cgtEtatCell(CV,CM):
     for i in range(len(CV)):
         s = T[CV[i-1][0]][CV[i+1][1]] +T[CV[i-1][0]][CV[i][1]] +T[CV[i-1][0]][CV[i-1][1]] +T[CV[i][0]][CV[i-1][1]] +T[CV[i+1][0]][CV[i-1][1]] +T[CV[i+1][0]][CV[i][1]] +T[CV[i+1][0]][CV[i+1][1]] +T[CV[i][0]][CV[i+1][1]]
         if s<2 or s>3:
@@ -61,19 +61,21 @@ def naissanceCell(CV,CM):
         s = T[CV[i-1][0]][CV[i+1][1]] +T[CV[i-1][0]][CV[i][1]] +T[CV[i-1][0]][CV[i-1][1]] +T[CV[i][0]][CV[i-1][1]] +T[CV[i+1][0]][CV[i-1][1]] +T[CV[i+1][0]][CV[i][1]] +T[CV[i+1][0]][CV[i+1][1]] +T[CV[i][0]][CV[i+1][1]]
         if s == 3:
             CVA= 1*CV.append(CV[i])
-            
+            CMA= 1*CM.pop(CM[i])
+    CV = CVA
+    CM = CVM
+    for i in range(len(CV)):
+        if (CV[i][0] == T[:i] or CV[i][0] == T[:0] ) and (CV[i][0] == T[:-1] or CV[i][0] == T[:-1] ):
+            CV=CV.pop(CV[i])
+
+
+    
+
 
         
 
 
 
-def mortCell():
-    global CM
-    CM=[]
-    for i in range(len(T)):
-        for j in range(len(T[0])):
-            if T[i][j]==0:
-                CM.append([i,j])
 
 
 
