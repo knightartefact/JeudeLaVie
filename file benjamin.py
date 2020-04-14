@@ -30,7 +30,7 @@ def vivantes(T):
 
 # Fonction pour trouver les coordonnées des cellules mortes
 
-def vivantes(T):
+def mortes(T):
     global CM
     CM=[]
     for i in range(len(T)):
@@ -43,10 +43,21 @@ def vivantes(T):
         Il faut créer une liste auxiliaire qui contient les coordonnées des cellules qui vont naitre
         ensuite, on utilise l'algo mortCell pour avoir la liste des coordonnées des cellules qui vont
         mourir. Enfin, on change la liste T avec l'algo iterationT.
+
+        Dans une première étape on regarde les cellules vivantes puis on décide si elle vit ou si elle meurt, 
+        ensuite on fait la même chose pour les cellules mortes puis on décide si elle vit ou si elle meurt; 
+        ces modifications sont impléentées dans des listes temporaires puis à la fin de l'algo ont les transfère
+        dans CV et CM pour ne pas faire d'interférences pendant le fonctionnement de l'algo
 '''
-def naissanceCell(CV):
+
+
+def naissanceCell(CV,CM):
     for i in range(len(CV)):
-        s= CV[i,]
+        s = T[CV[i-1][0]][CV[i+1][1]] +T[CV[i-1][0]][CV[i][1]] +T[CV[i-1][0]][CV[i-1][1]] +T[CV[i][0]][CV[i-1][1]] +T[CV[i+1][0]][CV[i-1][1]] +T[CV[i+1][0]][CV[i][1]] +T[CV[i+1][0]][CV[i+1][1]] +T[CV[i][0]][CV[i+1][1]]
+
+        
+
+
 
 def mortCell():
     global CM
@@ -79,3 +90,4 @@ def affiche(M):
     plt.axis('off')
     plt.show()
 
+^^
