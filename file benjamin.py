@@ -54,6 +54,14 @@ def mortes(T):
 def naissanceCell(CV,CM):
     for i in range(len(CV)):
         s = T[CV[i-1][0]][CV[i+1][1]] +T[CV[i-1][0]][CV[i][1]] +T[CV[i-1][0]][CV[i-1][1]] +T[CV[i][0]][CV[i-1][1]] +T[CV[i+1][0]][CV[i-1][1]] +T[CV[i+1][0]][CV[i][1]] +T[CV[i+1][0]][CV[i+1][1]] +T[CV[i][0]][CV[i+1][1]]
+        if s<2 or s>3:
+            CVA= 1*CV.pop(CV[i])
+            CMA= 1*CM.append(CV[i])
+    for i in range(len(CM)):
+        s = T[CV[i-1][0]][CV[i+1][1]] +T[CV[i-1][0]][CV[i][1]] +T[CV[i-1][0]][CV[i-1][1]] +T[CV[i][0]][CV[i-1][1]] +T[CV[i+1][0]][CV[i-1][1]] +T[CV[i+1][0]][CV[i][1]] +T[CV[i+1][0]][CV[i+1][1]] +T[CV[i][0]][CV[i+1][1]]
+        if s == 3:
+            CVA= 1*CV.append(CV[i])
+            
 
         
 
