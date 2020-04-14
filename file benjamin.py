@@ -11,14 +11,14 @@ def terrain(n):
     T=np.zeros((n,n))
 
 
-# Fonction pour placer les cellules vivantes au départ
+# Fonction pour placer les cellules vivantes au départ (le tableau L(1xn) est la liste des coordonnées des cellules vivantes que l'on veut placer)
 
 def cases_vivantes(L):
     for i in range(len(L)):
         T[L[i][0]][L[i][1]]=1
 
 
-# Fonction auxiliaire pour trouver les coordonnées des cellules vivantes
+# Fonction auxiliaire pour trouver les coordonnées des cellules vivantes (CV est donc le tableau(1xn) contenant les coordonnées de cellules vivantes)
 
 def vivantes(T):
     global CV
@@ -27,6 +27,16 @@ def vivantes(T):
         for j in range(len(T[0])):
             if T[i][j]==1:
                 CV.append([i,j])
+
+# Fonction pour trouver les coordonnées des cellules mortes
+
+def vivantes(T):
+    global CM
+    CM=[]
+    for i in range(len(T)):
+        for j in range(len(T[0])):
+            if T[i][j]==0:
+                CM.append([i,j])
 
 
 ''' Fonction auxiliaire pour faire naître une cellule (selon les règles données):
@@ -38,7 +48,13 @@ def naissanceCell(CV):
     for i in range(len(CV)):
         s= CV[i,]
 
-
+def mortCell():
+    global CM
+    CM=[]
+    for i in range(len(T)):
+        for j in range(len(T[0])):
+            if T[i][j]==0:
+                CM.append([i,j])
 
 
 
@@ -63,4 +79,4 @@ def affiche(M):
     plt.axis('off')
     plt.show()
 
-    # bonjour, comment-allez vous ?
+# bonjour, comment-allez vous ?
