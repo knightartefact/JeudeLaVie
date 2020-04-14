@@ -62,3 +62,5 @@ def affiche(M):
     plt.ylim(0,p)
     plt.axis('off')
     plt.show()
+
+    # bonjour, comment-allez vous ?
